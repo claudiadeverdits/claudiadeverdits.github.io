@@ -1,8 +1,8 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
+} */
 h1 {
   font-family: 'Anton', sans-serif;
 }
@@ -11,10 +11,10 @@ p {
 }
 body {
   color: #191919;
-  margin-left:10px;
+/*   margin-left:10px;
   margin-right:10px;
   margin-top:10px;
-  margin-bottom:10px;
+  margin-bottom:10px; */
 }
 .banner {
   width:100%;
