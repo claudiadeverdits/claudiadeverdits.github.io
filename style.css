@@ -131,3 +131,14 @@ grid-row-end: 2;
   justify-content:center;
   clear:both;
 }
+.ig{
+  width:50px;
+  margin-top:5px;
+}
+.keepInTouch{
+  display: flex;
+  justify-content:center;
+  flex-direction:column;
+  text-align:center;
+  padding:5px;
+}
