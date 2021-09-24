@@ -163,3 +163,7 @@ grid-row-end: 2;
   text-align:center;
   padding:5px;
 }
+.programHeader{
+  margin:0px;
+  padding:0px;
+}
