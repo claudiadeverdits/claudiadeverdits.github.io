@@ -148,6 +148,7 @@ grid-row-end: 2;
 .khanPrograms{
   display:flex;
   flex-direction:row;
+  flex-wrap:wrap;
   justify-content:center;
   margin:5px;
 }
