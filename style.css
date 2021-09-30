@@ -163,3 +163,15 @@ grid-row-end: 2;
   text-align:center;
   padding:5px;
 }
+.dancingBitmojiFun{
+  display:flex;
+  flex-direction:column;
+  text-align:center;
+  padding:5px;
+}
+.racingBitmojiFun{
+  display:flex;
+  flex-direction:column;
+  text-align:center;
+  padding:5px;
+}
