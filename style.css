@@ -176,3 +176,15 @@ grid-row-end: 2;
   text-align:center;
   padding:5px;
 }
+.decisionProgram{
+  display:flex;
+  flex-direction:column;
+  text-align:center;
+  padding:5px;
+}
+.followProgram{
+  display:flex;
+  flex-direction:column;
+  text-align:center;
+  padding:5px;
+}
