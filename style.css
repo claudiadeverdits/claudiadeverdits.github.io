@@ -208,3 +208,13 @@ grid-row-end: 2;
   object-fit:cover;
   width:400px;
 }
+.contacts{
+  display:flex;
+  flex-direction:column;
+  text-align:center;
+  padding:5px;
+}
+.contactsImage{
+  object-fit:cover;
+  width:400px;
+}
