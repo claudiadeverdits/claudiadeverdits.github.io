@@ -218,3 +218,13 @@ grid-row-end: 2;
   object-fit:cover;
   width:400px;
 }
+.trace{
+  display:flex;
+  flex-direction:column;
+  text-align:center;
+  padding:5px;
+}
+.traceImage{
+  object-fit:cover;
+  width:400px;
+}
