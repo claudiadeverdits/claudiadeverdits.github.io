@@ -238,3 +238,13 @@ grid-row-end: 2;
   object-fit:cover;
   width:400px;
 }
+.memory{
+  display:flex;
+  flex-direction:column;
+  text-align:center;
+  padding:5px;
+}
+.memoryImage{
+  object-fit:cover;
+  width:400px;
+}
