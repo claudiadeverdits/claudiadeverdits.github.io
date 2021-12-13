@@ -254,4 +254,5 @@ grid-row-end: 2;
   flex-direction:row;
   justify-content:center;
   align-items:center;
+  margin:10px;
 }
