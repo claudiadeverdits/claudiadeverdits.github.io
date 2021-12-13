@@ -248,3 +248,10 @@ grid-row-end: 2;
   object-fit:cover;
   width:400px;
 }
+
+.final-project{
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  align-items:center;
+}
