@@ -3,9 +3,54 @@
     <head>
         <meta charset="UTF-8">
         <title>Profile App</title>
+        <style>
+            #profile1 {float: left; width: 50%;}
+            #profile2 {float:left; width: 50%;}
+        </style>
     </head>
     <body>
         <img src="banner.png" width="100%">
+        <div id="profile1">
+            <h1>Profile 1</h1>
+            <h4>ID:</h4>
+            <p id="findID1"></p>
+
+            <h4>Name:</h4>
+            <p id="findName1"></p>
+
+            <h4>Birthday:</h4>
+            <p id="findBirthday1"></p>
+
+            <h4>Phone Number:</h4>
+            <p id="findNumber1"></p>
+
+            <h4>Bio:</h4>
+            <p id="findBio1"></p>
+
+            <h4>Profile Picture:</h4>
+            <p id="findPic1"></p>
+        </div>
+
+        <div id="profile2">
+            <h1>Profile 2</h1>
+            <h4>ID:</h4>
+            <p id="findID2"></p>
+
+            <h4>Name:</h4>
+            <p id="findName2"></p>
+
+            <h4>Birthday:</h4>
+            <p id="findBirthday2"></p>
+
+            <h4>Phone Number:</h4>
+            <p id="findNumber2"></p>
+
+            <h4>Bio:</h4>
+            <p id="findBio2"></p>
+
+            <h4>Profile Picture:</h4>
+            <p id="findPic2"></p>
+        </div>
 
         <script type="module">
             // Import the functions you need from the SDKs you need
@@ -28,31 +73,51 @@
             const app = initializeApp(firebaseConfig);
 
 
-            import {getDatabase, ref, get, set, child, update, remove}
+            import {getDatabase, ref, get, child}
             from "https://www.gstatic.com/firebasejs/10.4.0/firebase-databse.js"
 
             const db = getDatabase();
+            
 
             var idOne = "4D2PZdrv8qRVAnixEyGCzFqanIT2";
             var idTwo = "mRflqtC9QhRruZGukrdpIJL7wM83";
+            var findName1 = document.querySelector("#findName1");
+            var findBirthday1 = document.querySelector("#findBirthday1");
+            var findNumber1 = document.querySelector("#findNumber1");
+            var findBio1 = document.querySelector("#findBio1");
+            var findPic1 = document.querySelector("#findPic1");
 
-            function FindData() {
+            displayProfile(idOne);
+            
+            function displayProfile(idNum){
                 const dbref = ref(db);
-
-                get(child(dbref, "People/" + findID.value))
-                .then((snapshot)=>{
-                    if(snapshot.exists()){
-                        findName.innerHTML = "Name: " + snapshot.val().Name;
-                        findAge.innerHTML = "Age: " + snapshot.val().Age;
-                    } else {
-                        alert("No data found");
+                get(child(dbref, "People/" + idNum)).then((snapshot) => {
+                    if(snapshot.exists()) {
+                        findName1.innerHTML = snapshot.val().Name;
+                        findBirthday1.innerHTML = snapshot.val().Birthday;
+                        
                     }
                 })
-                .catch((error)=>{
-                    alert(error)
-                })
-            
             }
+
+
+            // function FindData() {
+            //     const dbref = ref(db);
+
+            //     get(child(dbref, "People/" + findID.value))
+            //     .then((snapshot)=>{
+            //         if(snapshot.exists()){
+            //             findName.innerHTML = "Name: " + snapshot.val().Name;
+            //             findAge.innerHTML = "Age: " + snapshot.val().Age;
+            //         } else {
+            //             alert("No data found");
+            //         }
+            //     })
+            //     .catch((error)=>{
+            //         alert(error)
+            //     })
+            
+            // }
             
         </script>
     </body>
