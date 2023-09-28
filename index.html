@@ -87,10 +87,9 @@
             var findBio1 = document.querySelector("#findBio1");
             var findPic1 = document.querySelector("#findPic1");
 
-            displayProfile(idOne);
             
             function displayProfile(idNum){
-                const dbref = ref(db);
+                const dbref = ref(db, "People");
                 get(child(dbref, "People/" + idNum)).then((snapshot) => {
                     if(snapshot.exists()) {
                         findName1.innerHTML = snapshot.val().Name;
@@ -105,7 +104,8 @@
                     alert(error);
                 })
             }
-
+            
+            displayProfile(idOne);
 
             // function FindData() {
             //     const dbref = ref(db);
