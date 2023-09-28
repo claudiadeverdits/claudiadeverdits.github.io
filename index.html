@@ -12,8 +12,6 @@
         <img src="banner.png" width="100%">
         <div id="profile1">
             <h1>Profile 1</h1>
-            <h4>ID:</h4>
-            <p id="findID1"></p>
 
             <h4>Name:</h4>
             <p id="findName1"></p>
@@ -28,14 +26,11 @@
             <p id="findBio1"></p>
 
             <h4>Profile Picture:</h4>
-            <p id="findPic1"></p>
+            <img src="" id="findPic1" width="100px">
         </div>
 
         <div id="profile2">
             <h1>Profile 2</h1>
-            <h4>ID:</h4>
-            <p id="findID2"></p>
-
             <h4>Name:</h4>
             <p id="findName2"></p>
 
@@ -49,7 +44,7 @@
             <p id="findBio2"></p>
 
             <h4>Profile Picture:</h4>
-            <p id="findPic2"></p>
+            <img src="" id="findPic2" width="100px">
         </div>
 
         <script type="module">
@@ -73,27 +68,34 @@
             const app = initializeApp(firebaseConfig);
 
 
-            import {getDatabase, ref, get, child}
-            from "https://www.gstatic.com/firebasejs/10.4.0/firebase-databse.js"
+            import {getDatabase, ref, get, child} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
 
             const db = getDatabase();
             
 
             var idOne = "4D2PZdrv8qRVAnixEyGCzFqanIT2";
             var idTwo = "mRflqtC9QhRruZGukrdpIJL7wM83";
-            var findName1 = document.querySelector("#findName1");
-            var findBirthday1 = document.querySelector("#findBirthday1");
-            var findNumber1 = document.querySelector("#findNumber1");
-            var findBio1 = document.querySelector("#findBio1");
-            var findPic1 = document.querySelector("#findPic1");
+            var findName1 = document.getElementById("findName1");
+            var findBirthday1 = document.getElementById("findBirthday1");
+            var findNumber1 = document.getElementById("findNumber1");
+            var findBio1 = document.getElementById("findBio1");
+            var findPic1 = document.getElementById("findPic1");
 
-            findName1.innerHTML = "test";
-            function displayProfile(idNum){
-                const dbref = ref(db, "People");
-                get(child(dbref, "People/" + idNum)).then((snapshot) => {
+            var findName2 = document.getElementById("findName2");
+            var findBirthday2 = document.getElementById("findBirthday2");
+            var findNumber2 = document.getElementById("findNumber2");
+            var findBio2 = document.getElementById("findBio2");
+            var findPic2 = document.getElementById("findPic2");
+          
+            function displayProfile(idNum, name, birthday, num, bio, pic){
+                const dbref = ref(db);
+                get(child(dbref, idNum)).then((snapshot) => {
                     if(snapshot.exists()) {
-                        findName1.innerHTML = snapshot.val().Name;
-                        findBirthday1.innerHTML = snapshot.val().Birthday;
+                        name.innerHTML = snapshot.val().name;
+                        birthday.innerHTML = snapshot.val().birthday;
+                        num.innerHTML = snapshot.val().number;
+                        bio.innerHTML = snapshot.val().bio;
+                        pic.src = snapshot.val().image;
                         
                     }
                     else{
@@ -105,25 +107,8 @@
                 })
             }
             
-            displayProfile(idOne);
-
-            // function FindData() {
-            //     const dbref = ref(db);
-
-            //     get(child(dbref, "People/" + findID.value))
-            //     .then((snapshot)=>{
-            //         if(snapshot.exists()){
-            //             findName.innerHTML = "Name: " + snapshot.val().Name;
-            //             findAge.innerHTML = "Age: " + snapshot.val().Age;
-            //         } else {
-            //             alert("No data found");
-            //         }
-            //     })
-            //     .catch((error)=>{
-            //         alert(error)
-            //     })
-            
-            // }
+            displayProfile(idOne, findName1, findBirthday1, findNumber1, findBio1, findPic1);
+            displayProfile(idTwo, findName2, findBirthday2, findNumber2, findBio2, findPic2);
             
         </script>
     </body>
