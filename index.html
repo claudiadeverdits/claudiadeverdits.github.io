@@ -97,6 +97,12 @@
                         findBirthday1.innerHTML = snapshot.val().Birthday;
                         
                     }
+                    else{
+                        alert("No data found");
+                    }
+                })
+                .catch((error)=>{
+                    alert(error);
                 })
             }
 
